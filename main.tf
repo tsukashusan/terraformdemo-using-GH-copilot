@@ -73,7 +73,7 @@ resource "azurerm_network_interface" "example" {
         subnet_id                     = azurerm_subnet.example.id
         private_ip_address_allocation = "Dynamic"
     }
-    enable_accelerated_networking = true
+    accelerated_networking_enabled = true
 }
 
 resource "azurerm_virtual_machine" "example" {
