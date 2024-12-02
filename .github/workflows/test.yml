@@ -32,6 +32,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
       env:
+        subscriptionId: ${{ secrets.AZURE_CREDENTIALS.subscriptionId }}
         ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_CREDENTIALS.subscriptionId }}
         ARM_CLIENT_ID: ${{ secrets.AZURE_CREDENTIALS.clientId }}
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS.clientSecret }}
