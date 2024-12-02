@@ -27,7 +27,6 @@ jobs:
         client-secret: ${{ secrets.AZURE_CREDENTIALS.ARM_CLIENT_SECRET }}
         tenant-id: ${{ secrets.AZURE_CREDENTIALS.ARM_TENANT_ID }}
 
-
     - name: Initialize Terraform
       run: terraform init
 
