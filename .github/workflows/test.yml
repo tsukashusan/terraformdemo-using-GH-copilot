@@ -22,11 +22,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v2
       with:
-        auty-type: SERVICE_PRINCIPAL
-        client-id: ${{ secrets.AZURE_CREDENTIALS.ARM_CLIENT_ID }}
-        subscription-id: ${{ secrets.AZURE_CREDENTIALS.ARM_SUBSCRIPTION_ID }}
-        client-secret: ${{ secrets.AZURE_CREDENTIALS.ARM_CLIENT_SECRET }}
-        tenant-id: ${{ secrets.AZURE_CREDENTIALS.ARM_TENANT_ID }}
+        creds: ${{ secrets.AZURE_CREDENTIALS1 }}
 
     - name: Initialize Terraform
       run: terraform init
