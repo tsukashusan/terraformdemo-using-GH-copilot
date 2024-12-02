@@ -9,8 +9,6 @@ terraform {
 
 provider "azurerm" {
     features {}
-    subscription_id = "your-subscription-id"
-    tenant_id       = "your-tenant-id"
 }
 
 resource "azurerm_network_security_group" "example" {
