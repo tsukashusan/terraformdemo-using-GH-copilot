@@ -1,15 +1,18 @@
 terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 4.12.0"
+    required_providers {
+        azurerm = {
+            source  = "hashicorp/azurerm"
+            version = "~> 4.12.0"
+        }
     }
-  }
 }
 
 provider "azurerm" {
     features {}
+    subscription_id = "your-subscription-id"
+    tenant_id       = "your-tenant-id"
 }
+
 resource "azurerm_network_security_group" "example" {
     name                = "example-nsg"
     location            = azurerm_resource_group.example.location
