@@ -19,6 +19,11 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v3
 
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Initialize Terraform
       run: terraform init
 
@@ -32,8 +37,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
       env:
-        subscriptionId: ${{ secrets.AZURE_CREDENTIALS.subscriptionId }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_CREDENTIALS.subscriptionId }}
-        ARM_CLIENT_ID: ${{ secrets.AZURE_CREDENTIALS.clientId }}
-        ARM_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS.clientSecret }}
-        ARM_TENANT_ID: ${{ secrets.AZURE_CREDENTIALS.tenant }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_CREDENTIALS.ARM_SUBSCRIPTION_ID }}
+        ARM_CLIENT_ID: ${{ secrets.AZURE_CREDENTIALS.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS.ARM_CLIENT_SECRET }}
+        ARM_TENANT_ID: ${{ secrets.AZURE_CREDENTIALS.ARM_TENANT_ID }}
